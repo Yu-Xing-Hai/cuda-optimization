@@ -1,7 +1,7 @@
 # 第一章  概述
 ## 1.1  并行计算
 ### 1.1.1  并行计算是什么？
-![计算示例](images/image-1.png)
+![计算示例](Projects/cuda-optimization/images/image-1.png)
 ### 1.1.2  并行计算的分类与数据划分
 - 数据并行
   - CUDA编程适合解决数据并行计算问题
@@ -14,13 +14,13 @@
     - 线程按照顺序处理相邻的数据块，每个线程处理多个数据块
 ## 1.2  计算机架构
 ### 1.2.1  佛林分类法Flynn’s Taxonomy
-![根据指令和数据进入CPU的方式分类](images/image-2.png)
+![根据指令和数据进入CPU的方式分类](Projects/cuda-optimization/images/image-2.png)
 ### 1.2.2  根据内存划分
 - 分布式内存的多节点系统(计算集群)
 - 共享内存的多处理器系统
   - 注意：常说的多核处理器中的“核”指的是ALU而非CPU
 # 第二章  异构计算与CUDA
-- ![常见的CPU+GPU异构架构](images/image-3.png)
+- ![常见的CPU+GPU异构架构](Projects/cuda-optimization/images/image-3.png)
   - CPU可被看作：host，主机端
     - 主机端运行主机代码，主要进行控制类工作
   - GPU可被看作：device，计算设备
@@ -47,7 +47,7 @@
   - CUDA应用通常被分解为两部分(由CUDA NVCC编译器自动分离)
     - CPU主机端代码
     - GPU设备端代码(核函数)
-    - ![如图所示](images/image-4.png)
+    - ![如图所示](Projects/cuda-optimization/images/image-4.png)
   - CUDA程序的常见步骤
     - 分配GPU内存
     - 拷贝数据到设备
@@ -63,9 +63,9 @@
 - 硬件层
   - 通过理解线程如何映射到机器上，能充分帮助我们提高计算性能
 ## 3.2  CUDA编程结构
-![注意，核函数被调用后控制马上归还主机线程，也就是在第一个并行代码执行时，很有可能第二段host代码已经开始同步执行了](images/image-5.png)
+![注意，核函数被调用后控制马上归还主机线程，也就是在第一个并行代码执行时，很有可能第二段host代码已经开始同步执行了](Projects/cuda-optimization/images/image-5.png)
 ## 3.3  内存管理
-- ![常见主机API和CUDA API](images/image-6.png)
+- ![常见主机API和CUDA API](Projects/cuda-optimization/images/image-6.png)
 - 最关键的API之——`cudaError_t cudaMemcpy(void* dst,const void* src,size_t count,cudaMemcpyKind kind)`
   - 该函数为内存拷贝过程，可以完成以下几种过程(cudaMemcpyKind kind)
     - cudaMemcpyHostToHost
@@ -80,7 +80,7 @@
   - 翻译错误代码
     - `char* cudaGetErrorString(cudaError_t error)`
 - 内存层次图(简易)
-  - ![内存层次图(简易)](images/image-7.png)
+  - ![内存层次图(简易)](Projects/cuda-optimization/images/image-7.png)
 ## 3.4  线程管理
 ## 3.5  核函数
 ## 3.6  错误处理

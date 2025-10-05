@@ -1,10 +1,10 @@
 # 一、安装前需要知道的配置信息
 - 电脑支持的最高CUDA版本
   - 打开命令行，输入`nvidia-smi`即可显示支持的CUDA最高版本
-  - ![电脑支持的最高CUDA版本](images/image.png)
+  - ![电脑支持的最高CUDA版本](Projects/cuda-optimization/docs/CodeEnvironmentConfigure/images/image.png)
 - 当前Visual Stdio版本
   - 我的是Visual Stdio17.11.5【不符合官网要求的CUDA11.7所支持的版本】
-    - ![CUDA](images/image-1.png)
+    - ![CUDA](Projects/cuda-optimization/docs/CodeEnvironmentConfigure/images/image-1.png)
 - 电脑操作系统版本
   - 我的是Win 11
 # 二、安装
